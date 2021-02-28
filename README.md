@@ -2,13 +2,17 @@
 
 this is a small ui thing ok cool epic.
 
-## Library Functions
+## Library
 
 ### lib:CreateGui()
 
 **Return**: `window` object
 
-## Window Functions
+## Window
+
+### window.Instance
+
+A reference to the acutal `Frame` instance of the window
 
 ### window:SetTitle(newTitle: `string`)
 
