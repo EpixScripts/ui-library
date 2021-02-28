@@ -4,7 +4,7 @@ this is a small ui thing ok cool epic.
 
 ## Library
 
-### lib:CreateGui()
+### lib:CreateWindow()
 
 **Return**: `window` object
 
@@ -12,7 +12,8 @@ this is a small ui thing ok cool epic.
 
 ### window.Instance
 
-A reference to the acutal `Frame` instance of the window
+A reference to the acutal `Frame` instance of the window.
+This is mostly used to set the parent of the window, usually either `PlayerGui` or `CoreGui`.
 
 ### window:SetTitle(newTitle: `string`)
 
