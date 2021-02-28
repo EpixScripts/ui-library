@@ -6,7 +6,7 @@ this is a small ui thing ok cool epic.
 
 ### lib:CreateGui()
 
-Return: `window` object
+**Return**: `window` object
 
 ## Window Functions
 
@@ -24,4 +24,4 @@ Note: `newIconId` should look like: `"rbxassetid://ID_HERE"`
 
 Adds a button item to the list of `window` with the text of `itemName` and the icon of `itemIconId`.
 
-Return: `listItem` object
+**Return**: `listItem` object
