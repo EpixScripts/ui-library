@@ -4,9 +4,9 @@ this is a small ui thing ok cool epic.
 
 ## Library
 
-### lib:CreateWindow(parent: Instance)
+### lib:CreateWindow(parent: Instance, size: UDim2)
 
-Creates a `window` object parented to instance `parent`.
+Creates a `window` object parented to instance `parent` and with size `size`.
 
 **Return**: `window` object
 
