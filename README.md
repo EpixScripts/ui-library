@@ -1,19 +1,27 @@
 # ui-library
 
-this is a small ui thing ok cool epic
+this is a small ui thing ok cool epic.
 
-## Functions
+## Library Functions
 
 ### lib:CreateGui()
 
-Returns a `Frame` that will hold options and other things inside
+Return: `window` object
 
-### lib:SetTitle(frame: Instance, newTitle: string)
+## Window Functions
 
-Sets the title bar text of `frame` to `newTitle`
+### window:SetTitle(newTitle: `string`)
 
-### lib:SetTitleIcon(frame: Instance, newIconId: string)
+Sets the title bar text of `window` to `newTitle`.
 
-Sets the title bar icon image of `frame` to `newIconId`
+### window:SetTitleIcon(newIconId: `string`)
+
+Sets the title bar icon image of `window` to `newIconId`.
 
 Note: `newIconId` should look like: `"rbxassetid://ID_HERE"`
+
+### window:AddListItem(itemName: `string`, itemIconId: `string`)
+
+Adds a button item to the list of `window` with the text of `itemName` and the icon of `itemIconId`.
+
+Return: `listItem` object
