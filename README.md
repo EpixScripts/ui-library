@@ -40,7 +40,11 @@ Adds a button item to the list of `window` with the text of `itemName` and the i
 
 ### listTab:AddItem(valueType, defaultValue, itemDescription: `string`)
 
+Adds item to `listTab` with type `valueType` and defaulted value `defaultValue`. It also accepts an optional `itemDescription`.
+
 **Possible Types**:
 - string (text input)
 - number (text input)
 - boolean (on/off switch)
+
+**Return**: `tabItem` object
