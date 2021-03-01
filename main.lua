@@ -40,7 +40,18 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 	titleText.Size = UDim2.fromScale(0.9, 1)
 	titleText.BackgroundTransparency = 1
 	titleText.Name = "TitleText"
+	titleText.TextColor3 = Color3.new(1, 1, 1)
+	titleText.Position = UDim2.fromScale(0.1, 0.5)
 	titleText.Parent = titleBar
+
+	local listFrame = Instance.new("Frame")
+	listFrame.BorderSizePixel = 0
+	listFrame.BackgroundColor3 = Color3.new(0.4, 0.4, 0.4)
+	listFrame.AnchorPoint = Vector2.new(0, 1)
+	listFrame.Size = UDim2.fromScale(0.3, 0.9)
+	listFrame.Name = "ListFrame"
+	listFrame.Parent = windowInstance
+	Instance.new("UIListLayout", listFrame)
 
 	function window:SetTitle(newTitle: string)
 		titleText.Text = newTitle
@@ -49,7 +60,33 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 	function window:SetTitleIcon(newIconId: number)
 		titleIcon.Image = "rbxassetid://" .. tostring(newIconId)
 	end
-	
+
+	function window:AddListItem(itemName: string, itemIconId: number)
+		local listItem = {}
+
+		local listItemInstance = Instance.new("TextButton")
+		listItemInstance.BackgroundTransparency = 1
+		listItemInstance.Text = ""
+		listItemInstance.Size = UDim.fromScale(1, 0.15)
+		listItemInstance.Parent = listFrame
+
+		local listItemName = Instance.new("TextLabel")
+		listItemName.BackgroundTransparency = 1
+		listItemName.TextScaled = true
+		listItemName.Text = itemName
+		listItemName.TextColor3 = Color3.new(1, 1, 1)
+		listItemName.AnchorPoint = Vector2.new(0, 0.5)
+		listItemName.Position = UDim2.fromScale(0.1, 0.5)
+		listItemName.Size = UDim2.fromScale(0.9, 1)
+		listItemName.Parent = listItemInstance
+
+		local listItemIcon = Instance.new("ImageLabel")
+		listItemIcon.BackgroundTransparency = 1
+		listItemIcon.Size = UDim2.fromScale(0.1, 1)
+		listItemIcon.Image = "rbxassetid://" .. tostring(itemIconId)
+		listItemIcon.Parent = listItemInstance
+	end
+
 	return window
 end
 
