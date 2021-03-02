@@ -68,7 +68,7 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 		local listItemInstance = Instance.new("TextButton")
 		listItemInstance.BackgroundTransparency = 1
 		listItemInstance.Text = ""
-		listItemInstance.Size = UDim.fromScale(1, 0.15)
+		listItemInstance.Size = UDim2.fromScale(1, 0.15)
 		listItemInstance.Parent = listFrame
 
 		local listItemName = Instance.new("TextLabel")
