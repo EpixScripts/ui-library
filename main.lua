@@ -49,6 +49,7 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 	listFrame.BackgroundColor3 = Color3.new(0.4, 0.4, 0.4)
 	listFrame.AnchorPoint = Vector2.new(0, 1)
 	listFrame.Size = UDim2.fromScale(0.3, 0.9)
+	listFrame.Position = UDim2.fromScale(0, 1)
 	listFrame.Name = "ListFrame"
 	listFrame.Parent = windowInstance
 	Instance.new("UIListLayout", listFrame)
