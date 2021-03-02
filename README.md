@@ -30,6 +30,10 @@ Adds a button item to the list of `window` with the text of `itemName` and the i
 
 **Return**: `listItem` object
 
+### window:SetCurrentTab(listTab: `listTab`)
+
+Set the current visible tab to `listTab`. Reccomended to be done to set the default tab once the UI loads.
+
 ## ListItem
 
 ### listItem:GetTab()
@@ -48,6 +52,10 @@ Adds item to `listTab` with type `valueType` and defaulted value `defaultValue`.
 - Dropdown menu (array, default value is array index)
 
 **Return**: `tabItem` object
+
+### listTab.Instance
+
+A reference to the actual `Frame` instance of the tab.
 
 ## TabItem
 
