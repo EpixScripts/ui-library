@@ -85,6 +85,7 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 		listItemIcon.Size = UDim2.fromScale(0.1, 1)
 		listItemIcon.Image = "rbxassetid://" .. tostring(itemIconId)
 		listItemIcon.Parent = listItemInstance
+		Instance.new("UIAspectRatioConstraint", listItemIcon)
 	end
 
 	return window
