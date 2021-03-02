@@ -27,7 +27,7 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 	titleIcon.Image = "rbxassetid://68437731"
 	titleIcon.Size = UDim2.fromScale(0.1, 1)
 	titleIcon.Position = UDim2.fromScale(0, 0)
-	titleIcon.BackgroundTransparency = 1
+	titleIcon.BackgroundTransparency = 0.5
 	titleIcon.Name = "TitleIcon"
 	titleIcon.Parent = titleBar
 	Instance.new("UIAspectRatioConstraint", titleIcon)
@@ -38,7 +38,7 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 	titleText.TextScaled = true
 	titleText.AnchorPoint = Vector2.new(0, 0.5)
 	titleText.Size = UDim2.fromScale(0.9, 1)
-	titleText.BackgroundTransparency = 1
+	titleText.BackgroundTransparency = 0.5
 	titleText.Name = "TitleText"
 	titleText.TextColor3 = Color3.new(1, 1, 1)
 	titleText.Position = UDim2.fromScale(0.1, 0.5)
