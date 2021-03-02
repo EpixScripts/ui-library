@@ -49,3 +49,13 @@ Adds item to `listTab` with type `valueType` and defaulted value `defaultValue`.
 - Dropdown menu (array, default value is array index)
 
 **Return**: `tabItem` object
+
+## TabItem
+
+### tabItem:GetCurrentValue()
+
+**Return**: The current value of the tab item
+
+### tabItem:ValueChanged(valueHandler: `function`)
+
+Whenever the value for this tab item gets changed, call `valueHandler` with an argument of the new value.
