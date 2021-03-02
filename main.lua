@@ -24,7 +24,7 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 	titleBar.Parent = windowInstance
 
 	local titleIcon = Instance.new("ImageLabel")
-	titleIcon.Image = "rbxassetid://68437732"
+	titleIcon.Image = "rbxassetid://68437731"
 	titleIcon.Size = UDim2.fromScale(0.1, 1)
 	titleIcon.Position = UDim2.fromScale(0, 0)
 	titleIcon.BackgroundTransparency = 1
