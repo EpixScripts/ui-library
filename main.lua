@@ -75,10 +75,11 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 		listItemName.BackgroundTransparency = 1
 		listItemName.TextScaled = true
 		listItemName.Text = itemName
+		listItemName.Font = Enum.Font.Highway
 		listItemName.TextColor3 = Color3.new(1, 1, 1)
 		listItemName.AnchorPoint = Vector2.new(0, 0.5)
 		listItemName.Position = UDim2.fromScale(0.1, 0.5)
-		listItemName.Size = UDim2.fromScale(0.9, 1)
+		listItemName.Size = UDim2.fromScale(0.7, 1)
 		listItemName.Parent = listItemInstance
 
 		local listItemIcon = Instance.new("ImageLabel")
