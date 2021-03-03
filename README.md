@@ -38,10 +38,9 @@ Set the current visible tab to `listTab`. Reccomended to be done to set the defa
 
 ## ListTab
 
-### listTab:AddItem(valueType, defaultValue, itemDescription: `string`)
+### listTab:AddItem(valueType, defaultValue, itemName: `string`)
 
-Adds item to `listTab` with type `valueType` and defaulted value `defaultValue`. It also accepts an optional `itemDescription`.
-
+Adds item to `listTab` with type `valueType` and defaulted value `defaultValue` and name `itemName`.
 **Possible Types**:
 - string (text input)
 - boolean (on/off switch)
