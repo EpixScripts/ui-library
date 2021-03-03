@@ -38,14 +38,14 @@ Set the current visible tab to `listTab`. Reccomended to be done to set the defa
 
 ## ListTab
 
-### listTab:AddItem(valueType, defaultValue, itemName: `string`)
+### listTab:AddItem(valueType: `string`, defaultValue, itemName: `string`)
 
 Adds item to `listTab` with type `valueType` and defaulted value `defaultValue` and name `itemName`.
 **Possible Types**:
 - string (text input)
 - boolean (on/off switch)
 - function (click to execute)
-- Dropdown menu (array, default value is array index)
+- dropdown (array, default value is array index)
 
 **Return**: `tabItem` object
 
