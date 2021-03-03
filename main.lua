@@ -49,7 +49,7 @@ end
 
 function library:CreateWindow(parent: ScreenGui, size: UDim2)
 	local window = {}
-	
+
 	local windowInstance = Instance.new("Frame")
 	windowInstance.Size = size
 	windowInstance.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -125,6 +125,31 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 		listItemIcon.Image = "rbxassetid://" .. tostring(itemIconId)
 		listItemIcon.Parent = listItemInstance
 		Instance.new("UIAspectRatioConstraint", listItemIcon)
+
+		local listItemTabFrame = Instance.new("Frame")
+		listItemTabFrame.BackgroundTransparency = 1
+		listItemTabFrame.AnchorPoint = Vector2.new(1, 1)
+		listItemTabFrame.Size = UDim2.fromScale(0.7, 0.9)
+		listItemTabFrame.Position = UDim2.fromScale(1, 1)
+		listItemTabFrame.Visible = false
+		listItemTabFrame.Parent = windowInstance
+		local tabLayout = Instance.new("UIListLayout", listItemTabFrame)
+		tabLayout.Padding = UDim.new(0.01, 0)
+
+		local listTab = {}
+
+		function listItem:GetTab()
+			return listTab
+		end
+
+		function listTab:AddItem(valueType, defaultValue, itemDescription)
+			local tabItem = {}
+
+			local tabItemFrame = Instance.new("Frame")
+			tabItemFrame.Size = UDim2.fromScale(1, 0.15)
+			tabItemFrame.BackgroundTransparency = 1
+			tabItemFrame.Parent = listItemTabFrame
+		end
 	end
 
 	return window
