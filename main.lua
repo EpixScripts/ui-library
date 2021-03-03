@@ -1,5 +1,52 @@
 local library = {}
 
+-- Services --
+
+local UserInputService = game:GetService("UserInputService")
+
+-- Functions --
+
+local function MakeGuiDraggable(guiObject)
+	local isDragging;
+	local dragInput;
+	local dragStart;
+	local startPos;
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		guiObject.Position = UDim2.new(
+			startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y
+		)
+	end
+
+	guiObject.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			isDragging = true
+			dragStart = input.Position
+			startPos = guiObject.Position
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					isDragging = false
+				end
+			end)
+		end
+	end)
+
+	guiObject.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement then
+			dragInput = input
+		end
+	end)
+
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and isDragging then
+			update(input)
+		end
+	end)
+end
+
 function library:CreateWindow(parent: ScreenGui, size: UDim2)
 	local window = {}
 	
@@ -14,6 +61,8 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 
 	window.Instance = windowInstance
 
+	MakeGuiDraggable(windowInstance)
+
 	local titleBar = Instance.new("Frame")
 	titleBar.AnchorPoint = Vector2.new(0.5, 0)
 	titleBar.Size = UDim2.fromScale(1, 0.1)
@@ -23,25 +72,15 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 	titleBar.Name = "TitleBar"
 	titleBar.Parent = windowInstance
 
-	local titleIcon = Instance.new("ImageLabel")
-	titleIcon.Image = "rbxassetid://68437731"
-	titleIcon.Size = UDim2.fromScale(0.1, 1)
-	titleIcon.Position = UDim2.fromScale(0, 0)
-	titleIcon.BackgroundTransparency = 0.5
-	titleIcon.Name = "TitleIcon"
-	titleIcon.Parent = titleBar
-	Instance.new("UIAspectRatioConstraint", titleIcon)
-
 	local titleText = Instance.new("TextLabel")
 	titleText.Text = "funny"
 	titleText.Font = Enum.Font.Highway
 	titleText.TextScaled = true
-	titleText.AnchorPoint = Vector2.new(0, 0.5)
-	titleText.Size = UDim2.fromScale(0.9, 1)
-	titleText.BackgroundTransparency = 0.5
+	titleText.Size = UDim2.fromScale(1, 1)
+	titleText.BackgroundTransparency = 1
 	titleText.Name = "TitleText"
 	titleText.TextColor3 = Color3.new(1, 1, 1)
-	titleText.Position = UDim2.fromScale(0.1, 0.5)
+	titleText.Position = UDim2.fromScale(0, 0)
 	titleText.Parent = titleBar
 
 	local listFrame = Instance.new("Frame")
@@ -56,10 +95,6 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 
 	function window:SetTitle(newTitle: string)
 		titleText.Text = newTitle
-	end
-
-	function window:SetTitleIcon(newIconId: number)
-		titleIcon.Image = "rbxassetid://" .. tostring(newIconId)
 	end
 
 	function window:AddListItem(itemName: string, itemIconId: number)
@@ -77,14 +112,16 @@ function library:CreateWindow(parent: ScreenGui, size: UDim2)
 		listItemName.Text = itemName
 		listItemName.Font = Enum.Font.Highway
 		listItemName.TextColor3 = Color3.new(1, 1, 1)
-		listItemName.AnchorPoint = Vector2.new(0, 0.5)
-		listItemName.Position = UDim2.fromScale(0.1, 0.5)
-		listItemName.Size = UDim2.fromScale(0.7, 1)
+		listItemName.AnchorPoint = Vector2.new(1, 0.5)
+		listItemName.Position = UDim2.fromScale(0.98, 0.5)
+		listItemName.Size = UDim2.fromScale(0.78, 0.9)
 		listItemName.Parent = listItemInstance
 
 		local listItemIcon = Instance.new("ImageLabel")
 		listItemIcon.BackgroundTransparency = 1
-		listItemIcon.Size = UDim2.fromScale(0.1, 1)
+		listItemIcon.AnchorPoint = Vector2.new(0, 0.5)
+		listItemIcon.Size = UDim2.fromScale(0.2, 1)
+		listItemIcon.Position = UDim2.fromScale(0.01, 0.5)
 		listItemIcon.Image = "rbxassetid://" .. tostring(itemIconId)
 		listItemIcon.Parent = listItemInstance
 		Instance.new("UIAspectRatioConstraint", listItemIcon)
