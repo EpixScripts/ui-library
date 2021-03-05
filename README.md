@@ -46,7 +46,7 @@ Adds item to `listTab` with type `valueType` and defaulted value `defaultValue` 
 **Possible Types**:
 - string (text input)
 - boolean (on/off switch)
-- function (click to execute)
+- function (click to execute, default value is this function)
 
 **Return**: `tabItem` object
 
