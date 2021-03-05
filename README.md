@@ -8,6 +8,8 @@ this is a small ui thing ok cool epic.
 
 Creates a `window` object parented to instance `parent` and with size `size`.
 
+Note: The size constraint of the window is `RelativeXX`.
+
 **Return**: `window` object
 
 ## Window
@@ -20,9 +22,9 @@ A reference to the acutal `Frame` instance of the window.
 
 Sets the title bar text of `window` to `newTitle`.
 
-### window:AddListItem(itemName: `string`, itemIconId: `int`)
+### window:AddListItem(itemName: `string`, itemIconId?: `int`)
 
-Adds a button item to the list of `window` with the text of `itemName` and the icon of `itemIconId`.
+Adds a button item to the list of `window` with the text of `itemName` and the icon of `itemIconId` (optional).
 
 **Return**: `listItem` object
 
@@ -45,7 +47,6 @@ Adds item to `listTab` with type `valueType` and defaulted value `defaultValue` 
 - string (text input)
 - boolean (on/off switch)
 - function (click to execute)
-- dropdown (array, default value is array index)
 
 **Return**: `tabItem` object
 
@@ -58,7 +59,3 @@ A reference to the actual `Frame` instance of the tab.
 ### tabItem:GetCurrentValue()
 
 **Return**: The current value of the tab item
-
-### tabItem:ValueChanged(valueHandler: `function`)
-
-Whenever the value for this tab item gets changed, call `valueHandler` with an argument of the new value.
