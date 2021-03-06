@@ -1,4 +1,5 @@
 local library = {}
+print("TEST")
 
 -- Services --
 
@@ -141,6 +142,8 @@ function TabClass:AddItem(valueType, defaultValue, itemName: string)
 			tabItem.value = stringInputBox.Text
 		end)
 	end
+	
+	return tabItem
 end
 
 local WindowClass = {}
