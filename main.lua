@@ -1,5 +1,4 @@
 local library = {}
-print("TEST")
 
 -- Services --
 
