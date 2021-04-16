@@ -101,6 +101,7 @@ function TabClass:AddItem(valueType, defaultValue, itemName: string)
 		itemRunButton.Name = "RunButton"
 		itemRunButton.Parent = tabItemInstance
 		
+		print("TEST")
 		itemRunButton.Activated:Connect(defaultValue)
 	elseif valueType == "boolean" then
 		local itemToggleButton = Instance.new("TextButton")
